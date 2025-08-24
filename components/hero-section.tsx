@@ -85,7 +85,7 @@ export const HeroSection = () => {
                   <Clock className="w-6 h-6 text-secondary" />
                 </div>
                 <div>
-                  <p className="font-bold text-foreground">+5 anos</p>
+                  <p className="font-bold text-foreground">+15 anos</p>
                   <p className="text-sm text-muted-foreground">
                     cuidando da sua beleza
                   </p>
