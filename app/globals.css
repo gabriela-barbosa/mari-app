@@ -1,42 +1,147 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Updated to elegant blush pink palette with better visual appeal */
+  --background: #ffffff; /* Pure white background */
+  --foreground: #374151; /* Dark gray text for excellent readability */
+  --card: #f8f2f5; /* Very light lavender for card backgrounds */
+  --card-foreground: #374151; /* Dark gray for card text */
+  --popover: #ffffff; /* White for popovers */
+  --popover-foreground: #374151;
+  --primary: #eab8d1; /* Soft blush pink for main elements */
+  --primary-foreground: #374151; /* Dark text on primary elements */
+  --secondary: #c4b6d4; /* Muted lavender-gray for secondary elements */
+  --secondary-foreground: #ffffff; /* White text on secondary elements */
+  --muted: #f8f2f5; /* Very light lavender for muted backgrounds */
+  --muted-foreground: #374151;
+  --accent: #a36e99; /* Deep mauve for highlights and CTAs */
+  --accent-foreground: #ffffff;
+  --destructive: #ff4d4d;
+  --destructive-foreground: #ffffff;
+  --border: #e0e0e0; /* Light gray borders */
+  --input: #ffffff; /* White input backgrounds */
+  --ring: rgba(233, 186, 210, 0.5); /* Blush pink focus ring */
+  --chart-1: #eab8d1;
+  --chart-2: #c4b6d4;
+  --chart-3: #a36e99;
+  --chart-4: #f8f2f5;
+  --chart-5: #f5c2d0;
+  --radius: 0.5rem;
+  --sidebar: #f8f2f5;
+  --sidebar-foreground: #374151;
+  --sidebar-primary: #eab8d1;
+  --sidebar-primary-foreground: #374151;
+  --sidebar-accent: #a36e99;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #e0e0e0;
+  --sidebar-ring: rgba(233, 186, 210, 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.dark {
+  --background: #1a1a1a;
+  --foreground: #f1f5f9;
+  --card: #2a2a2a;
+  --card-foreground: #f1f5f9;
+  --popover: #2a2a2a;
+  --popover-foreground: #f1f5f9;
+  --primary: #eab8d1;
+  --primary-foreground: #1a1a1a;
+  --secondary: #c4b6d4;
+  --secondary-foreground: #1a1a1a;
+  --muted: #2a2a2a;
+  --muted-foreground: #94a3b8;
+  --accent: #a36e99;
+  --accent-foreground: #ffffff;
+  --destructive: #ff4d4d;
+  --destructive-foreground: #f1f5f9;
+  --border: #404040;
+  --input: #2a2a2a;
+  --ring: rgba(233, 186, 210, 0.5);
+  --chart-1: #eab8d1;
+  --chart-2: #c4b6d4;
+  --chart-3: #a36e99;
+  --chart-4: #f8f2f5;
+  --chart-5: #f5c2d0;
+  --sidebar: #2a2a2a;
+  --sidebar-foreground: #f1f5f9;
+  --sidebar-primary: #eab8d1;
+  --sidebar-primary-foreground: #1a1a1a;
+  --sidebar-accent: #a36e99;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #404040;
+  --sidebar-ring: rgba(233, 186, 210, 0.5);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, 'SF Mono', Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-sans font-bold;
   }
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+/* Custom WhatsApp icon styling */
+.whatsapp-icon-custom svg path {
+  fill: var(--accent) !important;
+  stroke: var(--accent) !important;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.whatsapp-icon-custom svg {
+  color: var(--accent) !important;
 }
