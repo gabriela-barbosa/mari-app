@@ -16,10 +16,12 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: 'Estética Profissional - Design de Sobrancelhas, Massagens e Cílios',
+  title: 'Mari Estética - Design de Sobrancelhas, Massagens e Cílios',
   description:
     'Serviços especializados em design de sobrancelhas, massagens modeladoras, drenagem linfática, extensão de cílios e tratamentos estéticos.',
-  generator: 'v0.app',
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({
