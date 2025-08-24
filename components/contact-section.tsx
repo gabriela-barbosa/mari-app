@@ -116,6 +116,7 @@ export const ContactSection = () => {
                   variant="outline"
                   size="icon"
                   className="group border-accent text-accent hover:bg-accent hover:text-accent-foreground bg-transparent"
+                  onClick={() => redirectToWhatsapp()}
                 >
                   <svg
                     width="20"
