@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import Image from 'next/image';
 
 interface ServiceCardProps {
   icon: string | React.ReactNode;
@@ -35,7 +36,14 @@ export const ServiceCard = ({
       <CardHeader className="space-y-4">
         <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center group-hover:bg-primary/30 transition-all">
           {isIconImage ? (
-            <img src={icon} alt={title} className="w-12 h-12 rounded-2xl" />
+            <Image
+              src={icon}
+              alt={title}
+              className="w-12 h-12 rounded-2xl"
+              width={48}
+              height={48}
+              quality={100}
+            />
           ) : (
             <span className="text-2xl">{icon}</span>
           )}

@@ -1,6 +1,7 @@
 import { Badge } from '@/components/ui/badge';
+import Image from 'next/image';
 
-export function AboutSection() {
+export const AboutSection = () => {
   return (
     <section id="sobre" className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -47,10 +48,13 @@ export function AboutSection() {
 
           <div className="relative">
             <div className="aspect-[4/5] rounded-3xl overflow-hidden bg-card shadow-2xl">
-              <img
+              <Image
                 src="/mari.jpg"
-                alt="Profissional esteticista moderna"
+                alt="Foto de Marinalva"
                 className="w-full h-full object-cover"
+                width={400}
+                height={400}
+                quality={100}
               />
             </div>
           </div>
@@ -58,4 +62,4 @@ export function AboutSection() {
       </div>
     </section>
   );
-}
+};

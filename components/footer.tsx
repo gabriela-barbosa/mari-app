@@ -1,6 +1,6 @@
 import { SITE_CONFIG } from '@/lib/constants';
 
-export function Footer() {
+export const Footer = () => {
   return (
     <footer className="bg-background py-12 border-t border-border">
       <div className="container mx-auto px-4">
@@ -25,4 +25,4 @@ export function Footer() {
       </div>
     </footer>
   );
-}
+};

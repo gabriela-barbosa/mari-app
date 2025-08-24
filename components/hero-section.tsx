@@ -34,7 +34,7 @@ export const HeroSection = () => {
               <Button
                 size="lg"
                 className="text-lg px-8 bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg"
-                onClick={redirectToWhatsapp}
+                onClick={() => redirectToWhatsapp()}
               >
                 <Image
                   src="/whatsapp.svg"
@@ -71,10 +71,12 @@ export const HeroSection = () => {
 
           <div className="relative">
             <div className="aspect-square rounded-3xl overflow-hidden bg-card shadow-2xl">
-              <img
+              <Image
                 src="/elegant-spa-room.png"
                 alt="Ambiente moderno do estúdio de estética"
                 className="w-full h-full object-cover"
+                width={500}
+                height={500}
               />
             </div>
             <div className="absolute -bottom-6 -left-6 bg-background p-6 rounded-2xl shadow-xl border border-border backdrop-blur-sm">
